@@ -176,6 +176,10 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
 .obr strong{color:var(--gold);font-weight:600}
 .stb{margin-top:13px;background:rgba(255,255,255,.025);border:1px solid rgba(201,168,76,.13);border-radius:10px;padding:16px 19px}
 
+.s6g{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:14px}
+.s6strat{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sr5{grid-template-columns:repeat(5,1fr)}
+
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
 
@@ -186,12 +190,15 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
   .og{grid-template-columns:1fr;gap:16px}
   .concg{grid-template-columns:1fr;gap:14px}
   .sr{grid-template-columns:repeat(4,1fr)}
+  .sr5{grid-template-columns:repeat(5,1fr)}
   .ig{grid-template-columns:1fr 1fr}
   .ttl{font-size:clamp(1.4rem,2.6vw,2.2rem)}
   #s1 h1{font-size:clamp(2rem,4vw,3.4rem)}
   .logo{top:16px;left:22px;font-size:1rem}
   .ctr{top:18px;right:22px}
   .okpis{grid-template-columns:1fr 1fr}
+  .s6g{gap:14px}
+  .s6strat{grid-template-columns:1fr}
 }
 
 /* ── MOBILE (≤640px) ── */
@@ -232,6 +239,8 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
   .eyebrow{font-size:.52rem;letter-spacing:.28em;padding:4px 12px}
   .s1s{font-size:.9rem;letter-spacing:.08em}
   .cities{margin-top:24px}
+  .s6g{grid-template-columns:1fr;gap:12px}
+  .s6strat{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -252,13 +261,13 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
     <div class="s1s" data-d="300">Дніпро &nbsp;·&nbsp; Львів &nbsp;·&nbsp; Перспективи</div>
     <div class="s1d" data-d="400">ТРАВЕНЬ – ЧЕРВЕНЬ 2025</div>
     <div class="cities" data-d="520">
-      <div class="ci"><div class="cn">ДНІПРО</div><div class="cs">ЛІГА МАЙСТРІВ</div></div>
+      <div class="ci"><div class="cn">ДНІПРО</div><div class="cs">ЛІГА МАЙСТРІВ</div><div class="cs" style="color:rgba(201,168,76,.45);margin-top:2px">ЗАВЕРШЕНО</div></div>
       <div class="csep"></div>
-      <div class="ci"><div class="cn">ЛЬВІВ</div><div class="cs">ЛІГА МАЙСТРІВ</div></div>
+      <div class="ci"><div class="cn">ЛЬВІВ</div><div class="cs">ЛІГА МАЙСТРІВ</div><div class="cs" style="color:rgba(201,168,76,.45);margin-top:2px">ЗАВЕРШЕНО</div></div>
       <div class="csep"></div>
-      <div class="ci"><div class="cn">ОДЕСА</div><div class="cs">03.07.2026</div></div>
+      <div class="ci"><div class="cn">ОДЕСА</div><div class="cs">ЛІГА МАЙСТРІВ</div><div class="cs" style="margin-top:2px">03.07.2026</div></div>
       <div class="csep"></div>
-      <div class="ci"><div class="cn">КИЇВ</div><div class="cs">25.09.2026</div></div>
+      <div class="ci"><div class="cn">КИЇВ</div><div class="cs">ЛІГА МАЙСТРІВ</div><div class="cs" style="margin-top:2px">25.09.2026</div></div>
     </div>
   </div>
 </section>
@@ -273,11 +282,16 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
         <div class="ttl">Дніпро</div>
         <div class="gl"></div>
       </div>
-      <div class="sr" data-d="200">
+      <div class="sr sr5" data-d="200">
         <div class="sc"><div class="sv">600+</div><div class="sl">Відвідувачів</div></div>
         <div class="sc"><div class="sv">208</div><div class="sl">Q-реєстрацій</div></div>
         <div class="sc"><div class="sv">24</div><div class="sl">Дизайнерів</div></div>
         <div class="sc"><div class="sv">50</div><div class="sl">Дек. штукатурка</div></div>
+        <div class="sc"><div class="sv">3</div><div class="sl">Майстри</div></div>
+      </div>
+      <div class="cn-note" data-d="280">
+        <div class="cn-i">⚡</div>
+        <div>На виставці паралельно проходив Чемпіонат України з плиточників — значна частина відвідувачів були присутні на змаганнях і не доходили до виставкових стендів</div>
       </div>
       <div class="cn-note" data-d="310">
         <div class="cn-i">⚡</div>
@@ -304,17 +318,8 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
     </div>
     <div class="er">
       <div class="bc" data-d="160">
-        <div class="bl">Загальний бюджет</div>
+        <div class="bl">Загальні витрати</div>
         <div class="bt"><sup>₴</sup>133 759</div>
-        <div class="brs">
-          <div class="br"><span>Площа 15 м²</span><span class="a">₴ 84 000</span></div>
-          <div class="br"><span>Поп-ап стенд вигнутий 3×3 м</span><span class="a">₴ 20 990</span></div>
-          <div class="br"><span>Толстовки</span><span class="a">₴ 8 200</span></div>
-          <div class="br"><span>Пакети</span><span class="a">₴ 5 505</span></div>
-          <div class="br"><span>Візитки</span><span class="a">₴ 5 225</span></div>
-          <div class="br"><span>Вода, Кола, Серветки</span><span class="a">₴ 4 697</span></div>
-          <div class="br"><span>Інші витрати</span><span class="a">₴ 5 142</span></div>
-        </div>
       </div>
       <div class="ca gold" data-d="300">
         <div class="cat">🏆 Ключова перевага</div>
@@ -341,20 +346,21 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
         <div class="ttl">Львів</div>
         <div class="gl"></div>
       </div>
-      <div class="sr" data-d="200">
+      <div class="sr sr5" data-d="200">
         <div class="sc"><div class="sv">1 238</div><div class="sl">Відвідувачів</div></div>
         <div class="sc"><div class="sv">223</div><div class="sl">Q-реєстрацій</div></div>
         <div class="sc"><div class="sv">51</div><div class="sl">Дизайнерів</div></div>
         <div class="sc"><div class="sv">35</div><div class="sl">Дек. штукатурка</div></div>
+        <div class="sc"><div class="sv">2</div><div class="sl">Майстри</div></div>
       </div>
       <div class="cn-note" data-d="310">
         <div class="cn-i">⚡</div>
-        <div>На виставці паралельно проходив Чемпіонат серед плиточників Sika — значна частина з 1 238 відвідувачів були глядачами змагань і не доходили до стендів виставки</div>
+        <div>На виставці паралельно проходив Чемпіонат України з плиточників — значна частина з 1 238 відвідувачів були присутні на змаганнях і не доходили до виставкових стендів</div>
       </div>
       <div class="ig" data-d="420">
         <div class="ic">
           <div class="ict">Конкуренти з МК</div>
-          <div class="icb">У Львові майстер-класи проводили 5 конкурентів: Triora, Снежка, Полюмин, Sutek та Feia — аудиторія розподілялась між стендами</div>
+          <div class="icb">У Львові майстер-класи проводили багато конкурентів: Triora, Снежка, Полімін, Сілтек, Kreisel, FEIDAL, STO, BudBox — аудиторія розподілялась між стендами</div>
         </div>
         <div class="ic">
           <div class="ict">Якість аудиторії</div>
@@ -362,7 +368,7 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
         </div>
         <div class="ic">
           <div class="ict">Результат</div>
-          <div class="icb">223 реєстрації — результат зіставний із Дніпром попри 5 конкурентів та відтік уваги на чемпіонат плиточників</div>
+          <div class="icb">223 реєстрації — результат схожий із Дніпром попри велику кількість конкурентів з майстер-класами, та відтік уваги на чемпіонат плиточників</div>
         </div>
         <div class="ic">
           <div class="ict">B2B-контакти</div>
@@ -372,17 +378,8 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
     </div>
     <div class="er">
       <div class="bc" data-d="160">
-        <div class="bl">Бюджет виставки</div>
+        <div class="bl">Загальні витрати</div>
         <div class="bt"><sup>₴</sup>160 412</div>
-        <div class="brs">
-          <div class="br"><span>Площа 15 м²</span><span class="a">₴ 84 000</span></div>
-          <div class="br"><span>Реєстраційний внесок</span><span class="a">₴ 6 660</span></div>
-          <div class="br"><span>Поло (командна форма)</span><span class="a">₴ 7 450</span></div>
-          <div class="br"><span>Ручки</span><span class="a">₴ 16 032</span></div>
-          <div class="br"><span>Напої, Вода</span><span class="a">₴ 7 000</span></div>
-          <div class="br"><span>Пакети, Візитки, Інше</span><span class="a">₴ 5 670</span></div>
-          <div class="br"><span>Добові, Готель, Потяг</span><span class="a">₴ 33 600</span></div>
-        </div>
       </div>
       <div class="ca gold" data-d="300">
         <div class="cat">💡 Якість vs кількість</div>
@@ -391,7 +388,7 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
       <div class="ca blue" data-d="400">
         <div class="cat">📋 Передано до роботи</div>
         <div style="display:flex;flex-direction:column;gap:6px">
-          <div class="tp"><div class="tpc">Дизайнери та майстри</div><div class="tpd">Передані керівнику відділу роботи з дистрибуторами для системної комунікації</div></div>
+          <div class="tp"><div class="tpc">Дизайнери та майстри</div><div class="tpd">Зібрані контакти будуть залучені для формування живої, зацікавленої аудиторії — фахівців, які безпосередньо працюють із декоративними покриттями та впроваджують продукт у реальні об'єкти</div></div>
           <div class="tp"><div class="tpc">Магазини та дистриб.</div><div class="tpd">Передані керівнику відділу роботи з дистрибуторами для переговорів про партнерство</div></div>
         </div>
       </div>
@@ -414,9 +411,9 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
         <tr><td>Q-реєстрацій</td><td>208</td><td class="hi">223</td></tr>
         <tr><td>Дизайнерів</td><td>24</td><td class="hi">51 (×2)</td></tr>
         <tr><td>Дек. штукатурка</td><td class="hi">50</td><td>35</td></tr>
-        <tr><td>Конкуренти з МК</td><td class="hi">не було</td><td class="nw">TRIORA, Снежка, Полімін, Фейдал, Сілтек, БудБокс</td></tr>
+        <tr><td>Конкуренти з МК</td><td class="hi">не було</td><td class="nw">Triora<br>Снежка<br>Полімін<br>Сілтек<br>Kreisel<br>FEIDAL<br>STO<br>BudBox</td></tr>
         <tr><td>Якість аудиторії</td><td>Базова</td><td class="hi">Преміум B2B</td></tr>
-        <tr><td>Бюджет</td><td class="hi">₴ 133 759</td><td>₴ 160 412</td></tr>
+        <tr><td>Витрати</td><td class="hi">₴ 133 759</td><td>₴ 160 412</td></tr>
       </tbody>
     </table>
     <div class="bs" data-d="360">
@@ -483,7 +480,7 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
           <div class="conct">Чому Ліга Майстрів?</div>
           <ul class="cl">
             <li><div class="num">◈</div><span>Жива аудиторія — практики, які безпосередньо впливають на вибір матеріалів та ухвалюють рішення про закупівлі прямо під час виставки, без зайвих посередників.</span></li>
-            <li><div class="num">◈</div><span>Кожна виставка — це готовий контент для соціальних мереж: сторіс, фотозвіти та відео, що органічно залучають нову аудиторію та підвищують охоплення без рекламного бюджету.</span></li>
+            <li><div class="num">◈</div><span>Кожна виставка — це готовий контент для соціальних мереж: сторіс, фотозвіти та відео, що органічно залучають нову аудиторію та підвищують охоплення без додаткових витрат на рекламу.</span></li>
             <li><div class="num">◈</div><span>B2B-нетворкінг у прямому форматі — дистрибутори, магазини та потенційні партнери зосереджені в одному місці й відкриті до переговорів про довгострокове співробітництво.</span></li>
           </ul>
         </div>
@@ -492,49 +489,63 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
   </div>
 </section>
 
-<!-- ══ SLIDE 6 — ОДЕСА ══ -->
+<!-- ══ SLIDE 6 — ОДЕСА + КИЇВ ══ -->
 <section class="slide" id="s6">
   <div class="orbs">
     <div class="orb o1" style="background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%)"></div>
     <div class="orb o2"></div>
   </div>
-  <div class="og">
-    <div>
-      <div data-d="90">
-        <div class="obadge">Наступний крок</div>
-        <div class="lbl">Ліга Майстрів · Приморський регіон</div>
-        <div class="ttl">Одеса<br><span>03.07.2026</span></div>
-        <div class="gl"></div>
-      </div>
-      <div class="okpis" data-d="230">
-        <div class="okpi"><div class="okl">Бюджет — Потяг</div><div class="okv">₴ 153 412</div></div>
-        <div class="okpi"><div class="okl">Бюджет — Машина</div><div class="okv">₴ 163 912</div></div>
-      </div>
-      <div class="ors" data-d="360">
-        <div class="or2"><div class="oi">🌊</div><div>Приморський регіон із високим попитом на силіконові фасадні матеріали та рішення для оздоблення фасадів приватних і комерційних об'єктів</div></div>
-        <div class="or2"><div class="oi">🏙️</div><div>Місто-мільйонник із розвиненою культурою споживання якісних будматеріалів та активним дизайнерським ком'юніті</div></div>
-        <div class="or2"><div class="oi">🤝</div><div>Потенціал для виходу на нових регіональних дистрибуторів та партнерів у торговельних мережах півдня України</div></div>
-      </div>
+  <div style="position:relative;z-index:2;width:100%;max-width:1280px">
+    <div data-d="70" style="margin-bottom:14px">
+      <div class="lbl">Ліга Майстрів · Наступні виставки</div>
+      <div class="ttl">Одеса &amp; <span>Київ</span></div>
+      <div class="gl"></div>
     </div>
-    <div>
-      <div class="obc" data-d="170">
-        <div class="bl">Кошторис витрат · Одеса</div>
-        <div class="bt"><sup>₴</sup>153 412</div>
-        <div class="obrs">
-          <div class="obr"><span>Площа 15 м²</span><strong>₴ 84 000</strong></div>
-          <div class="obr"><span>Реєстраційний внесок</span><strong>₴ 6 660</strong></div>
-          <div class="obr"><span>Поло, Пакети, Візитки</span><strong>₴ 12 920</strong></div>
-          <div class="obr"><span>Вода, Напої, Ручки</span><strong>₴ 21 532</strong></div>
-          <div class="obr"><span>Інші матеріали</span><strong>₴ 3 900</strong></div>
-          <div class="obr"><span>Добові, Готель, Потяг 5 осіб</span><strong>₴ 24 400</strong></div>
+    <div class="s6g">
+      <!-- ОДЕСА -->
+      <div data-d="160">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="font-size:1.25rem;font-weight:800;color:var(--w)">Одеса</div>
+          <div class="obadge" style="margin-bottom:0">03.07.2026</div>
+        </div>
+        <div class="okpis" style="margin-top:0;margin-bottom:10px">
+          <div class="okpi"><div class="okl">Витрати (ЖД)</div><div class="okv">₴ 153 412</div></div>
+          <div class="okpi"><div class="okl">Витрати (Машина)</div><div class="okv">₴ 163 912</div></div>
+        </div>
+        <div class="ors" style="margin-top:0">
+          <div class="or2"><div class="oi">🌊</div><div>Приморський регіон із попитом на фасадні матеріали та якісне оздоблення — новий ринок збуту</div></div>
+          <div class="or2"><div class="oi">🏙️</div><div>Місто-мільйонник з активним будівництвом та культурою споживання якісних будматеріалів</div></div>
+          <div class="or2"><div class="oi">🤝</div><div>Нові регіональні дистрибутори та торговельні партнери півдня України — вихід на весь регіон</div></div>
         </div>
       </div>
-      <div class="stb" data-d="320">
-        <div class="conct">Стратегія участі</div>
-        <ul class="cl" style="margin-top:9px">
-          <li><div class="num">1</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">Майстер-клас — обов'язковий елемент програми стенду: демонстрація продукту в дії підвищує впізнаваність бренду, утримує аудиторію біля стенду та є головним інструментом збору контактів майстрів, дизайнерів, дистрибуторів і забудовників</span></li>
-          <li><div class="num">2</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">Презентація новинок компанії — виставка є ідеальним майданчиком для живої демонстрації нових матеріалів та рішень і формування попиту серед ключових аудиторій</span></li>
-          <li><div class="num">3</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">B2B-фокус — цілеспрямований пошук регіональних дистрибуторів, торговельних партнерів та забудовників для довгострокового співробітництва</span></li>
+      <!-- КИЇВ -->
+      <div data-d="230">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="font-size:1.25rem;font-weight:800;color:var(--w)">Київ</div>
+          <div class="obadge" style="margin-bottom:0">25.09.2026</div>
+        </div>
+        <div class="okpis" style="margin-top:0;margin-bottom:10px">
+          <div class="okpi"><div class="okl">Витрати (ЖД)</div><div class="okv">₴ 191 482</div></div>
+          <div class="okpi"><div class="okl">Витрати (Машина)</div><div class="okv">₴ 196 382</div></div>
+        </div>
+        <div class="ors" style="margin-top:0">
+          <div class="or2"><div class="oi">🏛️</div><div>Столичний ринок — найбільша концентрація дизайнерів, архітекторів та забудовників в Україні</div></div>
+          <div class="or2"><div class="oi">💼</div><div>Головні дистрибутори та мережеві торгові партнери — можливість охопити всю країну з однієї точки</div></div>
+          <div class="or2"><div class="oi">🚀</div><div>Ідеальна платформа для підвищення впізнаваності бренду та виходу на преміум-сегмент столиці</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Strategy block -->
+    <div class="stb" data-d="370">
+      <div class="conct" style="margin-bottom:10px">Стратегія участі та важливість виставок</div>
+      <div class="s6strat">
+        <ul class="cl">
+          <li><div class="num">1</div><span style="font-size:.77rem;color:var(--m);line-height:1.48">Майстер-класи — обов'язковий елемент кожного стенду: демонстрація продукту в дії утримує аудиторію та забезпечує монопольну увагу відвідувачів протягом усього дня виставки</span></li>
+          <li><div class="num">2</div><span style="font-size:.77rem;color:var(--m);line-height:1.48">Залучення нових клієнтів та підвищення впізнаваності бренду Colorina серед фахівців — майстрів, дизайнерів та будівельників у нових регіонах</span></li>
+        </ul>
+        <ul class="cl">
+          <li><div class="num">3</div><span style="font-size:.77rem;color:var(--m);line-height:1.48">Презентація новинок і нових продуктів компанії в живому форматі — формування попиту, демонстрація переваг матеріалів безпосередньо в дії</span></li>
+          <li><div class="num">4</div><span style="font-size:.77rem;color:var(--m);line-height:1.48">Збір контактів дистрибуторів, дизайнерів, майстрів та будівельників — системна побудова бази для продажів і довгострокових партнерств</span></li>
         </ul>
       </div>
     </div>
