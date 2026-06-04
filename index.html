@@ -178,6 +178,61 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
 
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* ── TABLET (≤1024px) ── */
+@media(max-width:1024px){
+  .slide{padding:28px 32px}
+  .eg{grid-template-columns:1fr;gap:16px}
+  .og{grid-template-columns:1fr;gap:16px}
+  .concg{grid-template-columns:1fr;gap:14px}
+  .sr{grid-template-columns:repeat(4,1fr)}
+  .ig{grid-template-columns:1fr 1fr}
+  .ttl{font-size:clamp(1.4rem,2.6vw,2.2rem)}
+  #s1 h1{font-size:clamp(2rem,4vw,3.4rem)}
+  .logo{top:16px;left:22px;font-size:1rem}
+  .ctr{top:18px;right:22px}
+  .okpis{grid-template-columns:1fr 1fr}
+}
+
+/* ── MOBILE (≤640px) ── */
+@media(max-width:640px){
+  html,body{overflow:auto}
+  .deck{height:auto;min-height:100vh}
+  .slide{position:relative;inset:auto;opacity:1!important;pointer-events:all!important;transform:none!important;display:none;padding:70px 18px 90px;min-height:100vh}
+  .slide.active{display:flex}
+  .slide.out{display:none}
+  .slide::after{display:none}
+  .eg,.og,.concg{grid-template-columns:1fr;gap:14px}
+  .sr{grid-template-columns:repeat(2,1fr);gap:8px}
+  .ig{grid-template-columns:1fr;gap:7px}
+  .bs{grid-template-columns:1fr;gap:10px}
+  .okpis{grid-template-columns:1fr 1fr}
+  .sg{grid-template-columns:repeat(3,1fr)}
+  .cities{gap:16px;flex-wrap:wrap;justify-content:center}
+  .csep{display:none}
+  .ttl{font-size:clamp(1.3rem,5.5vw,2rem)}
+  #s1 h1{font-size:clamp(1.8rem,7vw,2.8rem)}
+  .sv{font-size:1.4rem}
+  .sv2{font-size:1.3rem}
+  .icb{font-size:.78rem}
+  .logo{top:14px;left:16px;font-size:.95rem;letter-spacing:.2em}
+  .ctr{top:16px;right:16px;font-size:.6rem}
+  nav{bottom:16px;gap:10px}
+  .nb{width:36px;height:36px}
+  .ring{width:320px;height:320px}
+  .bc,.obc,.concb{padding:14px 16px}
+  .bt{font-size:1.5rem}
+  .br,.obr{font-size:.68rem}
+  .vrd{flex-direction:column;gap:10px;text-align:center}
+  .vs{display:none}
+  .ca{font-size:.74rem}
+  .tp{grid-template-columns:1fr;gap:3px}
+  .er{gap:10px}
+  .concg{margin-top:12px}
+  .eyebrow{font-size:.52rem;letter-spacing:.28em;padding:4px 12px}
+  .s1s{font-size:.9rem;letter-spacing:.08em}
+  .cities{margin-top:24px}
+}
 </style>
 </head>
 <body>
@@ -201,7 +256,9 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
       <div class="csep"></div>
       <div class="ci"><div class="cn">ЛЬВІВ</div><div class="cs">ЛІГА МАЙСТРІВ</div></div>
       <div class="csep"></div>
-      <div class="ci"><div class="cn">ОДЕСА</div><div class="cs">03.07.2025</div></div>
+      <div class="ci"><div class="cn">ОДЕСА</div><div class="cs">03.07.2026</div></div>
+      <div class="csep"></div>
+      <div class="ci"><div class="cn">КИЇВ</div><div class="cs">25.09.2026</div></div>
     </div>
   </div>
 </section>
@@ -222,7 +279,11 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
         <div class="sc"><div class="sv">24</div><div class="sl">Дизайнерів</div></div>
         <div class="sc"><div class="sv">50</div><div class="sl">Дек. штукатурка</div></div>
       </div>
-      <div class="ig" data-d="340">
+      <div class="cn-note" data-d="310">
+        <div class="cn-i">⚡</div>
+        <div>На виставці у Дніпрі ми були єдиним стендом із майстер-класом — це забезпечило монопольну увагу відвідувачів протягом усього дня та найвищу конверсію серед усіх учасників</div>
+      </div>
+      <div class="ig" data-d="420">
         <div class="ic">
           <div class="ict">Позиція на виставці</div>
           <div class="icb">Єдиний стенд із майстер-класом на всій виставці — максимальна концентрація відвідувачів біля нашого стенду протягом усього дня</div>
@@ -288,7 +349,7 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
       </div>
       <div class="cn-note" data-d="310">
         <div class="cn-i">⚡</div>
-        <div>На виставці паралельно проходив Чемпіонат серед плиточників — значна частина з 1 238 відвідувачів були глядачами змагань і не доходили до стендів виставки</div>
+        <div>На виставці паралельно проходив Чемпіонат серед плиточників Sika — значна частина з 1 238 відвідувачів були глядачами змагань і не доходили до стендів виставки</div>
       </div>
       <div class="ig" data-d="420">
         <div class="ic">
@@ -320,7 +381,7 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
           <div class="br"><span>Ручки</span><span class="a">₴ 16 032</span></div>
           <div class="br"><span>Напої, Вода</span><span class="a">₴ 7 000</span></div>
           <div class="br"><span>Пакети, Візитки, Інше</span><span class="a">₴ 5 670</span></div>
-          <div class="br"><span>Добові, Готель, ЖД</span><span class="a">₴ 33 600</span></div>
+          <div class="br"><span>Добові, Готель, Потяг</span><span class="a">₴ 33 600</span></div>
         </div>
       </div>
       <div class="ca gold" data-d="300">
@@ -402,10 +463,10 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
         <div class="concb" data-d="330">
           <div class="conct">Рекомендації</div>
           <ul class="cl">
-            <li><div class="num">1</div><span>Продовжити систематичну участь у виставках Ліги Майстрів у містах-мільйонниках — Одеса, Київ, Харків. Кожне місто відкриває доступ до нової аудиторії та регіональних партнерів, яких неможливо охопити дистанційно.</span></li>
+            <li><div class="num">1</div><span>Продовжити систематичну участь у виставках Ліги Майстрів у містах-мільйонниках — Одеса та Київ. Кожне місто відкриває доступ до нової аудиторії та регіональних партнерів, яких неможливо охопити дистанційно.</span></li>
             <li><div class="num">2</div><span>Фокус на міста з розвиненою культурою споживання декору та преміум-оздоблення: приморські регіони, столиця та великі культурні центри з активним дизайнерським ком'юніті.</span></li>
             <li><div class="num">3</div><span>Активна участь у галузевих чемпіонатах і форумах серед майстрів забезпечує якісний нетворкінг та збір B2B-контактів у неформальній атмосфері, де фахівці більш відкриті до діалогу.</span></li>
-            <li><div class="num">4</div><span>Обов'язкова присутність SMM-фахівця на кожній виставці для виробництва живого контенту — це інвестиція в органічне зростання аудиторії в соціальних мережах і підвищення впізнаваності бренду онлайн.</span></li>
+            <li><div class="num">4</div><span>Обов'язкова присутність менеджерів з продажів на кожній виставці для безпосередньої роботи з контактами та конвертації інтересу відвідувачів у реальні продажі.</span></li>
           </ul>
         </div>
       </div>
@@ -442,15 +503,15 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
       <div data-d="90">
         <div class="obadge">Наступний крок</div>
         <div class="lbl">Ліга Майстрів · Приморський регіон</div>
-        <div class="ttl">Одеса<br><span>03.07.2025</span></div>
+        <div class="ttl">Одеса<br><span>03.07.2026</span></div>
         <div class="gl"></div>
       </div>
       <div class="okpis" data-d="230">
-        <div class="okpi"><div class="okl">Бюджет — ЖД</div><div class="okv">₴ 153 412</div></div>
+        <div class="okpi"><div class="okl">Бюджет — Потяг</div><div class="okv">₴ 153 412</div></div>
         <div class="okpi"><div class="okl">Бюджет — Машина</div><div class="okv">₴ 163 912</div></div>
       </div>
       <div class="ors" data-d="360">
-        <div class="or2"><div class="oi">🌊</div><div>Приморський регіон із високим попитом на декоративні матеріали та преміум-оздоблення приватних і комерційних об'єктів</div></div>
+        <div class="or2"><div class="oi">🌊</div><div>Приморський регіон із високим попитом на силіконові фасадні матеріали та рішення для оздоблення фасадів приватних і комерційних об'єктів</div></div>
         <div class="or2"><div class="oi">🏙️</div><div>Місто-мільйонник із розвиненою культурою споживання якісних будматеріалів та активним дизайнерським ком'юніті</div></div>
         <div class="or2"><div class="oi">🤝</div><div>Потенціал для виходу на нових регіональних дистрибуторів та партнерів у торговельних мережах півдня України</div></div>
       </div>
@@ -465,15 +526,15 @@ nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;d
           <div class="obr"><span>Поло, Пакети, Візитки</span><strong>₴ 12 920</strong></div>
           <div class="obr"><span>Вода, Напої, Ручки</span><strong>₴ 21 532</strong></div>
           <div class="obr"><span>Інші матеріали</span><strong>₴ 3 900</strong></div>
-          <div class="obr"><span>Добові, Готель, ЖД 5 осіб</span><strong>₴ 24 400</strong></div>
+          <div class="obr"><span>Добові, Готель, Потяг 5 осіб</span><strong>₴ 24 400</strong></div>
         </div>
       </div>
       <div class="stb" data-d="320">
         <div class="conct">Стратегія участі</div>
         <ul class="cl" style="margin-top:9px">
-          <li><div class="num">1</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">Майстер-клас — обов'язковий елемент програми стенду як ключовий інструмент залучення аудиторії</span></li>
-          <li><div class="num">2</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">B2B-фокус — активний пошук регіональних дистрибуторів і торговельних партнерів півдня</span></li>
-          <li><div class="num">3</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">SMM у реальному часі — виробництво фото та відеоконтенту прямо з виставки для соціальних мереж</span></li>
+          <li><div class="num">1</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">Майстер-клас — обов'язковий елемент програми стенду: демонстрація продукту в дії підвищує впізнаваність бренду, утримує аудиторію біля стенду та є головним інструментом збору контактів майстрів, дизайнерів, дистрибуторів і забудовників</span></li>
+          <li><div class="num">2</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">Презентація новинок компанії — виставка є ідеальним майданчиком для живої демонстрації нових матеріалів та рішень і формування попиту серед ключових аудиторій</span></li>
+          <li><div class="num">3</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">B2B-фокус — цілеспрямований пошук регіональних дистрибуторів, торговельних партнерів та забудовників для довгострокового співробітництва</span></li>
         </ul>
       </div>
     </div>
