@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Звіт — Ліга Майстрів 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:   #0A1526;
+  --gold: #C9A84C;
+  --gl:   #E8C97A;
+  --glow: rgba(201,168,76,0.28);
+  --w:    #F5F0EB;
+  --m:    rgba(245,240,235,0.68);
+  --blue: #2563EB;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Montserrat',sans-serif;background:var(--bg);-webkit-font-smoothing:antialiased}
+
+/* dot pattern */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(201,168,76,0.06) 1.5px,transparent 1.5px);
+  background-size:30px 30px}
+
+.deck{width:100%;height:100vh;position:relative;overflow:hidden;z-index:1}
+
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:38px 58px;opacity:0;pointer-events:none;overflow:hidden;
+  transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);
+  transform:translateX(48px)}
+.slide.active{opacity:1;pointer-events:all;transform:translateX(0)}
+.slide.out{opacity:0;transform:translateX(-48px)}
+.slide::after{content:'';position:absolute;top:0;right:0;width:3px;height:52%;
+  background:linear-gradient(to bottom,var(--gold),transparent);opacity:.42}
+
+.orbs{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);animation:drift 22s ease-in-out infinite alternate}
+.o1{width:480px;height:480px;top:-90px;right:-70px;background:radial-gradient(circle,rgba(201,168,76,.15),transparent 70%);animation-duration:19s}
+.o2{width:380px;height:380px;bottom:-70px;left:-55px;background:radial-gradient(circle,rgba(37,99,235,.17),transparent 70%);animation-duration:27s;animation-delay:-9s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(26px,-34px) scale(1.07)}100%{transform:translate(-16px,24px) scale(.94)}}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* fixed ui */
+.logo{position:fixed;top:26px;left:42px;z-index:200;font-weight:900;font-size:1.2rem;letter-spacing:.3em;color:var(--gold);text-shadow:0 0 16px var(--glow)}
+.ctr{position:fixed;top:30px;right:42px;z-index:200;font-size:.68rem;letter-spacing:.2em;color:var(--m);font-weight:500}
+nav{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:15px}
+.nb{width:40px;height:40px;border-radius:50%;border:1px solid rgba(201,168,76,.34);background:rgba(201,168,76,.05);color:var(--gold);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,box-shadow .3s;backdrop-filter:blur(10px)}
+.nb:hover{background:rgba(201,168,76,.16);box-shadow:0 0 12px var(--glow)}
+.dots{display:flex;gap:7px;align-items:center}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(201,168,76,.26);cursor:pointer;transition:background .3s,transform .3s}
+.dot.on{background:var(--gold);transform:scale(1.5);box-shadow:0 0 6px var(--glow)}
+
+/* anim targets */
+[data-d]{opacity:0;transform:translateY(16px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+
+/* shared */
+.gl{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:11px 0 0}
+.lbl{font-size:.6rem;letter-spacing:.42em;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:5px}
+.ttl{font-size:clamp(1.8rem,3.2vw,2.9rem);font-weight:800;color:var(--w);line-height:1.1}
+.ttl span{color:var(--gold)}
+
+/* ── SLIDE 1 ── */
+#s1 .inn{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ring{position:absolute;z-index:0;width:580px;height:580px;border-radius:50%;border:1px solid rgba(201,168,76,.07);top:50%;left:50%;transform:translate(-50%,-50%);animation:spin 42s linear infinite}
+.ring::before{content:'';position:absolute;inset:42px;border-radius:50%;border:1px solid rgba(201,168,76,.04)}
+.eyebrow{font-size:.66rem;letter-spacing:.44em;font-weight:600;color:var(--gold);text-transform:uppercase;border:1px solid rgba(201,168,76,.26);padding:5px 18px;border-radius:2px;margin-bottom:28px}
+#s1 h1{font-size:clamp(2.7rem,5.5vw,4.5rem);font-weight:900;color:var(--w);line-height:1.07}
+#s1 h1 span{color:var(--gold)}
+.s1s{margin-top:16px;font-size:clamp(1rem,1.9vw,1.35rem);font-weight:300;letter-spacing:.12em;color:var(--m)}
+.s1d{margin-top:9px;font-size:.7rem;letter-spacing:.34em;color:rgba(201,168,76,.55);font-weight:500}
+.cities{display:flex;gap:40px;margin-top:38px;align-items:center}
+.ci{text-align:center}
+.cn{font-weight:700;font-size:1rem;letter-spacing:.1em;color:var(--w)}
+.cs{font-size:.64rem;letter-spacing:.18em;color:var(--gold);margin-top:3px;font-weight:500}
+.csep{width:1px;height:34px;background:rgba(201,168,76,.26)}
+
+/* ── EXPO SLIDES 2 & 3 ── */
+.eg{position:relative;z-index:2;width:100%;max-width:1300px;display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:start}
+.el{display:flex;flex-direction:column}
+.er{display:flex;flex-direction:column;gap:12px}
+
+.sr{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:18px}
+.sc{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.18);border-radius:8px;padding:14px 10px;text-align:center;transition:background .3s}
+.sc:hover{background:rgba(201,168,76,.12)}
+.sv{font-size:1.8rem;font-weight:900;color:var(--gold);line-height:1;text-shadow:0 0 18px rgba(201,168,76,.35)}
+.sl{font-size:.56rem;letter-spacing:.12em;color:var(--m);margin-top:5px;font-weight:600;text-transform:uppercase}
+
+/* 2×2 info grid */
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.ic{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.13);border-radius:8px;padding:13px 14px}
+.ict{font-size:.56rem;letter-spacing:.3em;font-weight:800;color:var(--gold);text-transform:uppercase;margin-bottom:7px}
+.icb{font-size:.84rem;color:var(--m);line-height:1.54}
+
+/* champ */
+.cn-note{display:flex;align-items:flex-start;gap:9px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.24);border-radius:7px;padding:9px 13px;margin-top:10px;font-size:.77rem;color:#93C5FD;line-height:1.46}
+.cn-i{flex-shrink:0;font-size:.9rem}
+
+/* budget */
+.bc{background:linear-gradient(135deg,rgba(201,168,76,.09),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.22);border-radius:11px;padding:18px 20px}
+.bl{font-size:.55rem;letter-spacing:.34em;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+.bt{font-size:1.95rem;font-weight:900;color:var(--w)}
+.bt sup{font-size:.78rem;color:var(--gold);margin-right:2px}
+.brs{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+.br{display:flex;justify-content:space-between;font-size:.74rem;color:var(--m);padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.042)}
+.br:last-child{border-bottom:none;padding-bottom:0}
+.br .a{color:var(--w);font-weight:600}
+
+/* callout */
+.ca{border-radius:0 8px 8px 0;padding:13px 16px;font-size:.79rem;color:var(--m);line-height:1.52}
+.ca.gold{background:rgba(201,168,76,.08);border-left:3px solid var(--gold)}
+.ca.blue{background:rgba(37,99,235,.09);border-left:3px solid var(--blue)}
+.cat{font-size:.58rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.ca.blue .cat{color:#60A5FA}
+.tp{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.73rem;align-items:start;padding-top:5px;border-top:1px solid rgba(255,255,255,.05)}
+.tp:first-child{padding-top:0;border-top:none}
+.tpc{color:var(--gold);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+.tpd{color:var(--m);line-height:1.44}
+
+/* ── SLIDE 4 ── */
+.cw{position:relative;z-index:2;width:100%;max-width:1240px}
+.ct{width:100%;border-collapse:collapse}
+.ct th{text-align:left;font-size:.6rem;letter-spacing:.26em;font-weight:700;text-transform:uppercase;color:var(--gold);padding:8px 14px;border-bottom:1px solid rgba(201,168,76,.26)}
+.ct th:not(:first-child){text-align:center}
+.ct td{padding:10px 14px;font-size:.82rem;color:var(--m);border-bottom:1px solid rgba(255,255,255,.04)}
+.ct tr:hover td{background:rgba(201,168,76,.03)}
+.ct td:not(:first-child){text-align:center}
+.ct td.hi{color:var(--gold);font-weight:700}
+.ct td.nw{color:rgba(245,240,235,.36);font-size:.75rem}
+.bs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.bcard{background:rgba(255,255,255,.025);border:1px solid rgba(201,168,76,.1);border-radius:9px;padding:14px 17px}
+.bct{font-size:.57rem;letter-spacing:.22em;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:11px}
+.bi{margin-bottom:8px}
+.bm{display:flex;justify-content:space-between;font-size:.7rem;margin-bottom:4px}
+.bm .city{color:var(--m)}
+.bm .val{color:var(--w);font-weight:600}
+.bt2{height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+.bf{height:100%;border-radius:3px;width:0;transition:width .9s cubic-bezier(.16,1,.3,1)}
+.bf.g{background:linear-gradient(90deg,var(--gold),var(--gl))}
+.bf.b{background:linear-gradient(90deg,#2563EB,#60A5FA)}
+.vrd{margin-top:14px;background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(37,99,235,.04));border:1px solid rgba(201,168,76,.16);border-radius:9px;padding:13px 20px;display:flex;gap:22px;align-items:center}
+.vi{text-align:center}
+.vc{font-size:.6rem;letter-spacing:.2em;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:3px}
+.vd{font-size:.76rem;color:var(--m)}
+.vs{flex:1;height:1px;background:rgba(201,168,76,.16)}
+.vm{font-size:.7rem;color:var(--m);text-align:center;flex-shrink:0}
+
+/* ── SLIDE 5 ── */
+.concw{position:relative;z-index:2;width:100%;max-width:1260px}
+.concg{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+.concc{display:flex;flex-direction:column;gap:12px}
+.concb{background:rgba(255,255,255,.025);border:1px solid rgba(201,168,76,.13);border-radius:11px;padding:18px 20px}
+.concb.ac{background:linear-gradient(135deg,rgba(201,168,76,.07),rgba(37,99,235,.04));border-color:rgba(201,168,76,.2)}
+.conct{font-size:.57rem;letter-spacing:.32em;font-weight:800;color:var(--gold);text-transform:uppercase;margin-bottom:11px}
+.cl{list-style:none;display:flex;flex-direction:column;gap:9px}
+.cl li{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;color:var(--m);line-height:1.54}
+.num{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.28);display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:800;color:var(--gold);margin-top:1px}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+.sv2{font-size:1.6rem;font-weight:900;color:var(--gold);text-shadow:0 0 16px var(--glow)}
+.sl2{font-size:.55rem;letter-spacing:.1em;color:var(--m);margin-top:3px;text-transform:uppercase}
+
+/* ── SLIDE 6 ── */
+.og{position:relative;z-index:2;width:100%;max-width:1260px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.obadge{display:inline-block;background:var(--gold);color:var(--bg);font-size:.55rem;font-weight:800;letter-spacing:.22em;padding:4px 11px;border-radius:2px;text-transform:uppercase;margin-bottom:10px}
+.okpis{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+.okpi{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.17);border-radius:8px;padding:13px 15px}
+.okl{font-size:.54rem;letter-spacing:.18em;font-weight:700;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+.okv{font-size:1.1rem;font-weight:800;color:var(--w)}
+.ors{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.or2{display:grid;grid-template-columns:26px 1fr;gap:9px;font-size:.81rem;color:var(--m);line-height:1.5;align-items:flex-start}
+.oi{font-size:.95rem;text-align:center}
+.obc{background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(201,168,76,.07));border:1px solid rgba(201,168,76,.26);border-radius:11px;padding:19px 21px}
+.obrs{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.obr{display:flex;justify-content:space-between;font-size:.75rem;color:var(--m);padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.042)}
+.obr:last-child{border-bottom:none;padding-bottom:0}
+.obr strong{color:var(--gold);font-weight:600}
+.stb{margin-top:13px;background:rgba(255,255,255,.025);border:1px solid rgba(201,168,76,.13);border-radius:10px;padding:16px 19px}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+</style>
+</head>
+<body>
+
+<div class="logo">2026</div>
+<div class="ctr" id="ctr">01 / 06</div>
+
+<div class="deck" id="deck">
+
+<!-- ══ SLIDE 1 ══ -->
+<section class="slide active" id="s1">
+  <div class="orbs"><div class="orb o1"></div><div class="orb o2"></div></div>
+  <div class="ring"></div>
+  <div class="inn">
+    <div class="eyebrow" data-d="80">ЗВІТ ПРО УЧАСТЬ У ВИСТАВКАХ ЛІГИ МАЙСТРІВ</div>
+    <h1 data-d="180">Звіт про участь<br>у <span>виставках</span></h1>
+    <div class="s1s" data-d="300">Дніпро &nbsp;·&nbsp; Львів &nbsp;·&nbsp; Перспективи</div>
+    <div class="s1d" data-d="400">ТРАВЕНЬ – ЧЕРВЕНЬ 2025</div>
+    <div class="cities" data-d="520">
+      <div class="ci"><div class="cn">ДНІПРО</div><div class="cs">ЛІГА МАЙСТРІВ</div></div>
+      <div class="csep"></div>
+      <div class="ci"><div class="cn">ЛЬВІВ</div><div class="cs">ЛІГА МАЙСТРІВ</div></div>
+      <div class="csep"></div>
+      <div class="ci"><div class="cn">ОДЕСА</div><div class="cs">03.07.2025</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 2 — ДНІПРО ══ -->
+<section class="slide" id="s2">
+  <div class="orbs"><div class="orb o1"></div><div class="orb o2"></div></div>
+  <div class="eg">
+    <div class="el">
+      <div data-d="80">
+        <div class="lbl">Виставка №1 · Ліга Майстрів</div>
+        <div class="ttl">Дніпро</div>
+        <div class="gl"></div>
+      </div>
+      <div class="sr" data-d="200">
+        <div class="sc"><div class="sv">600+</div><div class="sl">Відвідувачів</div></div>
+        <div class="sc"><div class="sv">208</div><div class="sl">Q-реєстрацій</div></div>
+        <div class="sc"><div class="sv">24</div><div class="sl">Дизайнерів</div></div>
+        <div class="sc"><div class="sv">50</div><div class="sl">Дек. штукатурка</div></div>
+      </div>
+      <div class="ig" data-d="340">
+        <div class="ic">
+          <div class="ict">Позиція на виставці</div>
+          <div class="icb">Єдиний стенд із майстер-класом на всій виставці — максимальна концентрація відвідувачів біля нашого стенду протягом усього дня</div>
+        </div>
+        <div class="ic">
+          <div class="ict">Профіль аудиторії</div>
+          <div class="icb">Переважно практикуючі майстри — широкий ринковий сегмент, готовий до взаємодії та вивчення нових матеріалів</div>
+        </div>
+        <div class="ic">
+          <div class="ict">Результат</div>
+          <div class="icb">208 цільових контактів зібрано у форматі живого діалогу — відвідувачі самостійно підходили та цікавились асортиментом</div>
+        </div>
+        <div class="ic">
+          <div class="ict">Впізнаваність бренду</div>
+          <div class="icb">Підтверджено впізнаваність торгової марки серед фахівців та живий інтерес до повної лінійки продуктів</div>
+        </div>
+      </div>
+    </div>
+    <div class="er">
+      <div class="bc" data-d="160">
+        <div class="bl">Загальний бюджет</div>
+        <div class="bt"><sup>₴</sup>133 759</div>
+        <div class="brs">
+          <div class="br"><span>Площа 15 м²</span><span class="a">₴ 84 000</span></div>
+          <div class="br"><span>Поп-ап стенд вигнутий 3×3 м</span><span class="a">₴ 20 990</span></div>
+          <div class="br"><span>Толстовки</span><span class="a">₴ 8 200</span></div>
+          <div class="br"><span>Пакети</span><span class="a">₴ 5 505</span></div>
+          <div class="br"><span>Візитки</span><span class="a">₴ 5 225</span></div>
+          <div class="br"><span>Вода, Кола, Серветки</span><span class="a">₴ 4 697</span></div>
+          <div class="br"><span>Інші витрати</span><span class="a">₴ 5 142</span></div>
+        </div>
+      </div>
+      <div class="ca gold" data-d="300">
+        <div class="cat">🏆 Ключова перевага</div>
+        Відсутність конкурентів із майстер-класами дала нам монопольну увагу аудиторії та дозволила зібрати найбільшу кількість контактів серед усіх стендів виставки.
+      </div>
+      <div class="ca blue" data-d="400">
+        <div class="cat">📋 Передано до роботи</div>
+        Усі 208 зібраних контактів передані керівнику Дніпровського філіалу для подальшого опрацювання та конвертації у продажі.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 3 — ЛЬВІВ ══ -->
+<section class="slide" id="s3">
+  <div class="orbs">
+    <div class="orb o1" style="background:radial-gradient(circle,rgba(37,99,235,.16),transparent 70%)"></div>
+    <div class="orb o2"></div>
+  </div>
+  <div class="eg">
+    <div class="el">
+      <div data-d="80">
+        <div class="lbl">Виставка №2 · Ліга Майстрів</div>
+        <div class="ttl">Львів</div>
+        <div class="gl"></div>
+      </div>
+      <div class="sr" data-d="200">
+        <div class="sc"><div class="sv">1 238</div><div class="sl">Відвідувачів</div></div>
+        <div class="sc"><div class="sv">223</div><div class="sl">Q-реєстрацій</div></div>
+        <div class="sc"><div class="sv">51</div><div class="sl">Дизайнерів</div></div>
+        <div class="sc"><div class="sv">35</div><div class="sl">Дек. штукатурка</div></div>
+      </div>
+      <div class="cn-note" data-d="310">
+        <div class="cn-i">⚡</div>
+        <div>На виставці паралельно проходив Чемпіонат серед плиточників — значна частина з 1 238 відвідувачів були глядачами змагань і не доходили до стендів виставки</div>
+      </div>
+      <div class="ig" data-d="420">
+        <div class="ic">
+          <div class="ict">Конкуренти з МК</div>
+          <div class="icb">У Львові майстер-класи проводили 5 конкурентів: Triora, Снежка, Полюмин, Sutek та Feia — аудиторія розподілялась між стендами</div>
+        </div>
+        <div class="ic">
+          <div class="ict">Якість аудиторії</div>
+          <div class="icb">51 дизайнер — вдвічі більше, ніж у Дніпрі. Преміум-сегмент із інтересом до дорогих матеріалів та комплексних рішень</div>
+        </div>
+        <div class="ic">
+          <div class="ict">Результат</div>
+          <div class="icb">223 реєстрації — результат зіставний із Дніпром попри 5 конкурентів та відтік уваги на чемпіонат плиточників</div>
+        </div>
+        <div class="ic">
+          <div class="ict">B2B-контакти</div>
+          <div class="icb">Отримано контакти магазинів та дистрибуторів. Надійшла пропозиція щодо складської логістики для зовнішніх ринків</div>
+        </div>
+      </div>
+    </div>
+    <div class="er">
+      <div class="bc" data-d="160">
+        <div class="bl">Бюджет виставки</div>
+        <div class="bt"><sup>₴</sup>160 412</div>
+        <div class="brs">
+          <div class="br"><span>Площа 15 м²</span><span class="a">₴ 84 000</span></div>
+          <div class="br"><span>Реєстраційний внесок</span><span class="a">₴ 6 660</span></div>
+          <div class="br"><span>Поло (командна форма)</span><span class="a">₴ 7 450</span></div>
+          <div class="br"><span>Ручки</span><span class="a">₴ 16 032</span></div>
+          <div class="br"><span>Напої, Вода</span><span class="a">₴ 7 000</span></div>
+          <div class="br"><span>Пакети, Візитки, Інше</span><span class="a">₴ 5 670</span></div>
+          <div class="br"><span>Добові, Готель, ЖД</span><span class="a">₴ 33 600</span></div>
+        </div>
+      </div>
+      <div class="ca gold" data-d="300">
+        <div class="cat">💡 Якість vs кількість</div>
+        Середня тривалість контакту у Львові значно довша — аудиторія обирає рішення, а не просто продукт. Це наш формат роботи.
+      </div>
+      <div class="ca blue" data-d="400">
+        <div class="cat">📋 Передано до роботи</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="tp"><div class="tpc">Дизайнери та майстри</div><div class="tpd">Передані керівнику відділу роботи з дистрибуторами для системної комунікації</div></div>
+          <div class="tp"><div class="tpc">Магазини та дистриб.</div><div class="tpd">Передані керівнику відділу роботи з дистрибуторами для переговорів про партнерство</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 4 — ПОРІВНЯННЯ ══ -->
+<section class="slide" id="s4">
+  <div class="orbs"><div class="orb o1"></div><div class="orb o2"></div></div>
+  <div class="cw">
+    <div data-d="70">
+      <div class="lbl">Аналітика</div>
+      <div class="ttl">Порівняння <span>виставок</span></div>
+    </div>
+    <table class="ct" data-d="200" style="margin-top:16px">
+      <thead><tr><th>Показник</th><th>Дніпро</th><th>Львів</th></tr></thead>
+      <tbody>
+        <tr><td>Відвідувачі</td><td>600+</td><td class="hi">1 238</td></tr>
+        <tr><td>Q-реєстрацій</td><td>208</td><td class="hi">223</td></tr>
+        <tr><td>Дизайнерів</td><td>24</td><td class="hi">51 (×2)</td></tr>
+        <tr><td>Дек. штукатурка</td><td class="hi">50</td><td>35</td></tr>
+        <tr><td>Конкуренти з МК</td><td class="hi">не було</td><td class="nw">TRIORA, Снежка, Полімін, Фейдал, Сілтек, БудБокс</td></tr>
+        <tr><td>Якість аудиторії</td><td>Базова</td><td class="hi">Преміум B2B</td></tr>
+        <tr><td>Бюджет</td><td class="hi">₴ 133 759</td><td>₴ 160 412</td></tr>
+      </tbody>
+    </table>
+    <div class="bs" data-d="360">
+      <div class="bcard">
+        <div class="bct">Дизайнери в аудиторії</div>
+        <div class="bi"><div class="bm"><span class="city">Дніпро</span><span class="val">24</span></div><div class="bt2"><div class="bf g" data-w="47%"></div></div></div>
+        <div class="bi"><div class="bm"><span class="city">Львів</span><span class="val">51</span></div><div class="bt2"><div class="bf b" data-w="100%"></div></div></div>
+      </div>
+      <div class="bcard">
+        <div class="bct">Q-реєстрації (контакти)</div>
+        <div class="bi"><div class="bm"><span class="city">Дніпро</span><span class="val">208</span></div><div class="bt2"><div class="bf g" data-w="93%"></div></div></div>
+        <div class="bi"><div class="bm"><span class="city">Львів</span><span class="val">223</span></div><div class="bt2"><div class="bf b" data-w="100%"></div></div></div>
+      </div>
+    </div>
+    <div class="vrd" data-d="500">
+      <div class="vi"><div class="vc">Дніпро</div><div class="vd">Масове охоплення · Монополія МК</div></div>
+      <div class="vs"></div>
+      <div class="vm">Різні ринки —<br>різні задачі</div>
+      <div class="vs"></div>
+      <div class="vi"><div class="vc">Львів</div><div class="vd">Преміум B2B · Дистрибутори</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 5 — ВИСНОВКИ ══ -->
+<section class="slide" id="s5">
+  <div class="orbs"><div class="orb o1"></div><div class="orb o2"></div></div>
+  <div class="concw">
+    <div data-d="70">
+      <div class="lbl">Підсумок</div>
+      <div class="ttl">Висновки та <span>рекомендації</span></div>
+    </div>
+    <div class="concg">
+      <div class="concc">
+        <div class="concb" data-d="200">
+          <div class="conct">Ключові висновки</div>
+          <ul class="cl">
+            <li><div class="num">✓</div><span>Участь у виставках Ліги Майстрів є стратегічно важливим інструментом для формування впізнаваності бренду, збору цільових контактів та налагодження прямого діалогу з майстрами, дизайнерами та дистрибуторами по всій країні.</span></li>
+            <li><div class="num">✓</div><span>Аналіз двох виставок підтвердив: кожен регіон має унікальний профіль аудиторії. Дніпро орієнтований на масове охоплення практикуючих майстрів, Львів забезпечує вихід на преміум-сегмент і B2B-партнерів.</span></li>
+            <li><div class="num">✓</div><span>Майстер-клас є ключовим інструментом залучення аудиторії та утримання уваги біля стенду. У Дніпрі, де ми були єдиними з МК, це дало монопольну перевагу над усіма учасниками виставки.</span></li>
+            <li><div class="num">✓</div><span>Кожна виставка генерує живий контент для соціальних мереж: сторіс, фотозвіти, відео з майстер-класів — це органічно розширює охоплення і залучає нову аудиторію онлайн без додаткових витрат.</span></li>
+          </ul>
+        </div>
+        <div class="concb" data-d="330">
+          <div class="conct">Рекомендації</div>
+          <ul class="cl">
+            <li><div class="num">1</div><span>Продовжити систематичну участь у виставках Ліги Майстрів у містах-мільйонниках — Одеса, Київ, Харків. Кожне місто відкриває доступ до нової аудиторії та регіональних партнерів, яких неможливо охопити дистанційно.</span></li>
+            <li><div class="num">2</div><span>Фокус на міста з розвиненою культурою споживання декору та преміум-оздоблення: приморські регіони, столиця та великі культурні центри з активним дизайнерським ком'юніті.</span></li>
+            <li><div class="num">3</div><span>Активна участь у галузевих чемпіонатах і форумах серед майстрів забезпечує якісний нетворкінг та збір B2B-контактів у неформальній атмосфері, де фахівці більш відкриті до діалогу.</span></li>
+            <li><div class="num">4</div><span>Обов'язкова присутність SMM-фахівця на кожній виставці для виробництва живого контенту — це інвестиція в органічне зростання аудиторії в соціальних мережах і підвищення впізнаваності бренду онлайн.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="concc">
+        <div class="concb ac" data-d="240">
+          <div class="conct">Підсумок двох виставок</div>
+          <div class="sg">
+            <div style="text-align:center"><div class="sv2">431</div><div class="sl2">Контактів</div></div>
+            <div style="text-align:center"><div class="sv2">75</div><div class="sl2">Дизайнерів</div></div>
+            <div style="text-align:center"><div class="sv2">₴294K</div><div class="sl2">Інвестовано</div></div>
+          </div>
+        </div>
+        <div class="concb" data-d="390">
+          <div class="conct">Чому Ліга Майстрів?</div>
+          <ul class="cl">
+            <li><div class="num">◈</div><span>Жива аудиторія — практики, які безпосередньо впливають на вибір матеріалів та ухвалюють рішення про закупівлі прямо під час виставки, без зайвих посередників.</span></li>
+            <li><div class="num">◈</div><span>Кожна виставка — це готовий контент для соціальних мереж: сторіс, фотозвіти та відео, що органічно залучають нову аудиторію та підвищують охоплення без рекламного бюджету.</span></li>
+            <li><div class="num">◈</div><span>B2B-нетворкінг у прямому форматі — дистрибутори, магазини та потенційні партнери зосереджені в одному місці й відкриті до переговорів про довгострокове співробітництво.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 6 — ОДЕСА ══ -->
+<section class="slide" id="s6">
+  <div class="orbs">
+    <div class="orb o1" style="background:radial-gradient(circle,rgba(37,99,235,.18),transparent 70%)"></div>
+    <div class="orb o2"></div>
+  </div>
+  <div class="og">
+    <div>
+      <div data-d="90">
+        <div class="obadge">Наступний крок</div>
+        <div class="lbl">Ліга Майстрів · Приморський регіон</div>
+        <div class="ttl">Одеса<br><span>03.07.2025</span></div>
+        <div class="gl"></div>
+      </div>
+      <div class="okpis" data-d="230">
+        <div class="okpi"><div class="okl">Бюджет — ЖД</div><div class="okv">₴ 153 412</div></div>
+        <div class="okpi"><div class="okl">Бюджет — Машина</div><div class="okv">₴ 163 912</div></div>
+      </div>
+      <div class="ors" data-d="360">
+        <div class="or2"><div class="oi">🌊</div><div>Приморський регіон із високим попитом на декоративні матеріали та преміум-оздоблення приватних і комерційних об'єктів</div></div>
+        <div class="or2"><div class="oi">🏙️</div><div>Місто-мільйонник із розвиненою культурою споживання якісних будматеріалів та активним дизайнерським ком'юніті</div></div>
+        <div class="or2"><div class="oi">🤝</div><div>Потенціал для виходу на нових регіональних дистрибуторів та партнерів у торговельних мережах півдня України</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="obc" data-d="170">
+        <div class="bl">Кошторис витрат · Одеса</div>
+        <div class="bt"><sup>₴</sup>153 412</div>
+        <div class="obrs">
+          <div class="obr"><span>Площа 15 м²</span><strong>₴ 84 000</strong></div>
+          <div class="obr"><span>Реєстраційний внесок</span><strong>₴ 6 660</strong></div>
+          <div class="obr"><span>Поло, Пакети, Візитки</span><strong>₴ 12 920</strong></div>
+          <div class="obr"><span>Вода, Напої, Ручки</span><strong>₴ 21 532</strong></div>
+          <div class="obr"><span>Інші матеріали</span><strong>₴ 3 900</strong></div>
+          <div class="obr"><span>Добові, Готель, ЖД 5 осіб</span><strong>₴ 24 400</strong></div>
+        </div>
+      </div>
+      <div class="stb" data-d="320">
+        <div class="conct">Стратегія участі</div>
+        <ul class="cl" style="margin-top:9px">
+          <li><div class="num">1</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">Майстер-клас — обов'язковий елемент програми стенду як ключовий інструмент залучення аудиторії</span></li>
+          <li><div class="num">2</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">B2B-фокус — активний пошук регіональних дистрибуторів і торговельних партнерів півдня</span></li>
+          <li><div class="num">3</div><span style="font-size:.79rem;color:var(--m);line-height:1.5">SMM у реальному часі — виробництво фото та відеоконтенту прямо з виставки для соціальних мереж</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<nav>
+  <button class="nb" onclick="navigate(-1)">&#8592;</button>
+  <div class="dots" id="dots"></div>
+  <button class="nb" onclick="navigate(1)">&#8594;</button>
+</nav>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsEl  = document.getElementById('dots');
+const ctrEl   = document.getElementById('ctr');
+let cur = 0, busy = false;
+
+slides.forEach((_,i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i===0?' on':'');
+  d.onclick = () => go(i);
+  dotsEl.appendChild(d);
+});
+
+function show(slide) {
+  slide.querySelectorAll('[data-d]').forEach(el => {
+    el.style.transition = 'none';
+    el.style.opacity    = '0';
+    el.style.transform  = 'translateY(16px)';
+    const ms = parseInt(el.dataset.d) || 0;
+    setTimeout(() => {
+      el.style.transition = 'opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1)';
+      el.style.opacity    = '1';
+      el.style.transform  = 'translateY(0)';
+    }, ms + 40);
+  });
+  slide.querySelectorAll('.bf').forEach(b => {
+    const w = b.dataset.w || '0%';
+    b.style.transition = 'none';
+    b.style.width = '0';
+    setTimeout(() => {
+      b.style.transition = 'width .85s cubic-bezier(.16,1,.3,1)';
+      b.style.width = w;
+    }, 500);
+  });
+}
+
+function dots() {
+  document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('on', i===cur));
+  ctrEl.textContent = String(cur+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
+}
+
+function go(next) {
+  if (busy || next===cur) return;
+  busy = true;
+  slides[cur].classList.remove('active');
+  slides[cur].classList.add('out');
+  cur = next;
+  slides[cur].classList.add('active');
+  show(slides[cur]);
+  setTimeout(() => {
+    document.querySelectorAll('.slide.out').forEach(s => s.classList.remove('out'));
+    busy = false;
+  }, 680);
+  dots();
+}
+
+function navigate(d) { go((cur+d+slides.length)%slides.length); }
+
+show(slides[0]);
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key==='ArrowDown') navigate(1);
+  if (e.key==='ArrowLeft'||e.key==='ArrowUp')    navigate(-1);
+});
+let tx=0;
+document.addEventListener('touchstart', e => { tx=e.touches[0].clientX; });
+document.addEventListener('touchend',   e => { if(Math.abs(tx-e.changedTouches[0].clientX)>50) navigate(tx>e.changedTouches[0].clientX?1:-1); });
+dots();
+</script>
+</body>
+</html>
